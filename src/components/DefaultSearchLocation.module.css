@@ -1,0 +1,7 @@
+.root {
+  @apply flex items-center justify-around my-6;
+}
+
+.locationButton {
+  @apply text-lg text-white font-medium;
+}

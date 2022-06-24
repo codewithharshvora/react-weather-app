@@ -1,0 +1,23 @@
+.root {
+}
+
+.heading {
+  @apply flex items-center justify-start mt-6;
+  @apply text-white font-medium uppercase;
+}
+
+.forcastContainer {
+  @apply flex flex-row items-center justify-between text-white;
+}
+
+.hourlyForcast {
+  @apply flex flex-col items-center justify-center;
+}
+
+.time {
+  @apply font-light text-sm;
+}
+
+.temperature {
+  @apply font-medium;
+}

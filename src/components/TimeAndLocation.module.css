@@ -1,0 +1,18 @@
+.root {
+}
+
+.dateTimeContainer {
+  @apply flex flex-row items-center justify-center my-6;
+}
+
+.dateTime {
+  @apply text-white text-xl font-extralight;
+}
+
+.locationContainer {
+  @apply flex items-center justify-center my-3;
+}
+
+.location {
+  @apply text-white text-3xl font-medium;
+}

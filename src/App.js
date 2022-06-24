@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import DefaultSearchLocation from './components/DefaultSearchLocation';
+import Forcast from './components/Forcast';
+import Inputs from './components/Inputs';
+import TemperatureAndDetails from './components/TemperatureAndDetails';
+import TimeAndLocation from './components/TimeAndLocation';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="root">
+      <DefaultSearchLocation />
+      <Inputs />
+
+      <TimeAndLocation />
+
+      <TemperatureAndDetails />
+
+      <Forcast title="hourly forcast" />
+      <Forcast title="daily forcast" />
     </div>
   );
 }
