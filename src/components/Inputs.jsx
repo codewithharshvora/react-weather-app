@@ -3,7 +3,7 @@ import { Search, MapPin } from 'react-feather';
 
 import classes from './Inputs.module.css';
 
-const Inputs = ({ setQuery, setUnits, query }) => {
+const Inputs = ({ setQuery, setUnits }) => {
   const [city, setCity] = useState('null');
 
   const handleLocationClick = () => {
@@ -25,7 +25,6 @@ const Inputs = ({ setQuery, setUnits, query }) => {
           placeholder="Search for city..."
           onChange={(e) => setCity(e.target.value)}
           className={classes.inputBox}
-          defaultValue={query.q}
         />
         <Search
           size={25}

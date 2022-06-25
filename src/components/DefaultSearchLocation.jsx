@@ -20,6 +20,10 @@ const DefaultSearchLocation = ({ setQuery }) => {
       id: 4,
       title: 'Delhi',
     },
+    {
+      id: 5,
+      title: 'Goa',
+    },
   ];
 
   const handleClick = useCallback((e) => {

@@ -31,7 +31,7 @@ function App() {
   return (
     <div className={`root ${backgroud()}`}>
       <DefaultSearchLocation setQuery={setQuery} />
-      <Inputs setQuery={setQuery} setUnits={setUnits} query={query} />
+      <Inputs setQuery={setQuery} setUnits={setUnits} />
 
       {weather && (
         <>
