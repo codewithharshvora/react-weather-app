@@ -9,30 +9,46 @@ import {
   ArrowUp,
   ArrowDown,
 } from 'react-feather';
+import { formatToLocalTime, iconUrlFromCode } from '../services/weather';
 import classes from './TemperatureAndDetails.module.css';
 
-const TemperatureAndDetails = () => {
+const TemperatureAndDetails = ({ weather }) => {
+  const {
+    details,
+    icon,
+    temp,
+    temp_min,
+    temp_max,
+    sunrise,
+    sunset,
+    humidity,
+    speed,
+    feels_like,
+    timezone,
+  } = weather;
+
   return (
     <div className={classes.root}>
       <div className={classes.temperatureText}>
-        <p>Clody</p>
+        <p>{details}</p>
       </div>
 
       <div className={classes.temperatureNumber}>
-        <Circle size={35} color="darkorange" fill="darkorange" />
-        <p className={classes.temperature}>34°</p>
+        <img src={iconUrlFromCode(icon)} alt={details} className="w-20" />
+        <p className={classes.temperature}>{temp.toFixed()}°</p>
         <div className={classes.feelLikeContainer}>
           <div className={classes.feelLike}>
             <Thermometer size={18} className="mr-1" />
-            Real fell:<span className={classes.unit}>32°</span>
+            Real fell:
+            <span className={classes.unit}>{feels_like.toFixed()}°</span>
           </div>
           <div className={classes.feelLike}>
             <Droplet size={18} className="mr-1" />
-            Humidity:<span className={classes.unit}>65%</span>
+            Humidity:<span className={classes.unit}>{humidity.toFixed()}%</span>
           </div>
           <div className={classes.feelLike}>
             <Wind size={18} className="mr-1" />
-            Wind:<span className={classes.unit}>11 km/h</span>
+            Wind:<span className={classes.unit}>{speed.toFixed()} km/h</span>
           </div>
         </div>
       </div>
@@ -40,22 +56,28 @@ const TemperatureAndDetails = () => {
       <div className={classes.todayForcastContainer}>
         <Sunrise size={18} />
         <p className={classes.todayForcast}>
-          Rise:<span className={classes.unit}>06:45 AM</span>
+          Rise:
+          <span className={classes.unit}>
+            {formatToLocalTime(sunrise, timezone, 'hh:mm a')}
+          </span>
         </p>
         <p className="font-light">|</p>
         <Sunset size={18} />
         <p className={classes.todayForcast}>
-          Set:<span className={classes.unit}>07:35 PM</span>
+          Set:
+          <span className={classes.unit}>
+            {formatToLocalTime(sunset, timezone, 'hh:mm a')}
+          </span>
         </p>
         <p className="font-light">|</p>
         <ArrowUp size={18} />
         <p className={classes.todayForcast}>
-          High:<span className={classes.unit}>45°</span>
+          High:<span className={classes.unit}>{temp_max.toFixed()}°</span>
         </p>
         <p className="font-light">|</p>
         <ArrowDown size={18} />
         <p className={classes.todayForcast}>
-          Low:<span className={classes.unit}>37°</span>
+          Low:<span className={classes.unit}>{temp_min.toFixed()}°</span>
         </p>
       </div>
     </div>

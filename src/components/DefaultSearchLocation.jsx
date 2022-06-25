@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import classes from './DefaultSearchLocation.module.css';
 
-const DefaultSearchLocation = () => {
+const DefaultSearchLocation = ({ setQuery }) => {
   const cities = [
     {
       id: 1,
@@ -21,12 +21,21 @@ const DefaultSearchLocation = () => {
       title: 'Delhi',
     },
   ];
+
+  const handleClick = useCallback((e) => {
+    setQuery({ q: e.target.innerText });
+  });
+
   return (
     <div className={classes.root}>
       {cities.map((city) => {
         const { id, title } = city;
         return (
-          <button key={id} className={classes.locationButton}>
+          <button
+            key={id}
+            className={classes.locationButton}
+            onClick={handleClick}
+          >
             {title}
           </button>
         );

@@ -18,10 +18,6 @@
   @apply flex flex-row w-1/4 items-center justify-center;
 }
 
-.temperatureButton {
-  @apply text-xl text-white mx-1;
-}
-
 .pipe {
-  @apply text-xl text-white mx-1;
+  @apply text-xl text-white mx-2;
 }

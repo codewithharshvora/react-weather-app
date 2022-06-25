@@ -1,3 +1,11 @@
 .root {
-  @apply mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400;
+  @apply mx-auto max-w-screen-md mt-4 pt-5 pb-10 px-32 bg-gradient-to-br  h-fit shadow-xl shadow-gray-400;
+}
+
+.backgroundBlue {
+  @apply from-cyan-700 to-blue-700;
+}
+
+.backgroundYellow {
+  @apply from-yellow-700 to-orange-700;
 }

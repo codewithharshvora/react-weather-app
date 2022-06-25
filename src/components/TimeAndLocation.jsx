@@ -1,17 +1,20 @@
 import React from 'react';
+import { formatToLocalTime } from '../services/weather';
 
 import classes from './TimeAndLocation.module.css';
 
-const TimeAndLocation = () => {
+const TimeAndLocation = ({ weather }) => {
+  const { dt, timeZone, name, country } = weather;
+
   return (
     <div className={classes.root}>
       <div className={classes.dateTimeContainer}>
         <div className={classes.dateTime}>
-          Tuesday, 31 May 2022 | Lcal time: 12:46 PM
+          {formatToLocalTime(dt, timeZone)}
         </div>
       </div>
       <div className={classes.locationContainer}>
-        <p className={classes.location}>Berlin, DE</p>
+        <p className={classes.location}>{`${name}, ${country}`}</p>
       </div>
     </div>
   );
