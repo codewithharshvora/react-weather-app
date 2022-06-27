@@ -14,15 +14,15 @@ const DefaultSearchLocation = ({ setQuery }) => {
     },
     {
       id: 3,
-      title: 'Udaipur',
-    },
-    {
-      id: 4,
       title: 'Delhi',
     },
     {
+      id: 4,
+      title: 'Udaipur',
+    },
+    {
       id: 5,
-      title: 'Goa',
+      title: 'Shimla',
     },
   ];
 
