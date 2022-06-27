@@ -3,5 +3,5 @@
 }
 
 .locationButton {
-  @apply text-lg text-white font-medium;
+  @apply text-sm lg:text-lg text-white font-medium;
 }

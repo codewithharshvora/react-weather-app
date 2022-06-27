@@ -6,7 +6,7 @@
 }
 
 .dateTime {
-  @apply text-white text-xl font-extralight;
+  @apply text-white text-sm lg:text-2xl font-extralight;
 }
 
 .locationContainer {
@@ -15,4 +15,8 @@
 
 .location {
   @apply text-white text-3xl font-medium;
+}
+
+.pipe {
+  @apply font-light;
 }

@@ -2,11 +2,11 @@
 }
 
 .temperatureText {
-  @apply flex items-center justify-center py-6 text-xl text-cyan-300;
+  @apply flex flex-col items-center justify-start text-xl text-cyan-300;
 }
 
 .temperatureNumber {
-  @apply flex flex-row items-center justify-between text-white py-3;
+  @apply flex flex-row items-center justify-between text-white pb-3 pt-4;
 }
 
 .temperature {
@@ -22,7 +22,7 @@
 }
 
 .todayForcastContainer {
-  @apply flex flex-row items-center justify-center space-x-2 text-white text-sm py-3;
+  @apply flex flex-row items-center justify-center lg:space-x-4 space-x-2 text-white text-sm py-8;
 }
 
 .todayForcast {

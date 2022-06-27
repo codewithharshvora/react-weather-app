@@ -29,12 +29,11 @@ const TemperatureAndDetails = ({ weather }) => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.temperatureText}>
-        <p>{details}</p>
-      </div>
-
       <div className={classes.temperatureNumber}>
-        <img src={iconUrlFromCode(icon)} alt={details} className="w-20" />
+        <div className={classes.temperatureText}>
+          <img src={iconUrlFromCode(icon)} alt={details} className="w-10" />
+          {details}
+        </div>
         <p className={classes.temperature}>{temp.toFixed()}°</p>
         <div className={classes.feelLikeContainer}>
           <div className={classes.feelLike}>
@@ -56,7 +55,6 @@ const TemperatureAndDetails = ({ weather }) => {
       <div className={classes.todayForcastContainer}>
         <Sunrise size={18} />
         <p className={classes.todayForcast}>
-          Rise:
           <span className={classes.unit}>
             {formatToLocalTime(sunrise, timezone, 'hh:mm a')}
           </span>
@@ -64,7 +62,6 @@ const TemperatureAndDetails = ({ weather }) => {
         <p className="font-light">|</p>
         <Sunset size={18} />
         <p className={classes.todayForcast}>
-          Set:
           <span className={classes.unit}>
             {formatToLocalTime(sunset, timezone, 'hh:mm a')}
           </span>
@@ -72,12 +69,12 @@ const TemperatureAndDetails = ({ weather }) => {
         <p className="font-light">|</p>
         <ArrowUp size={18} />
         <p className={classes.todayForcast}>
-          High:<span className={classes.unit}>{temp_max.toFixed()}°</span>
+          <span className={classes.unit}>{temp_max.toFixed()}°</span>
         </p>
         <p className="font-light">|</p>
         <ArrowDown size={18} />
         <p className={classes.todayForcast}>
-          Low:<span className={classes.unit}>{temp_min.toFixed()}°</span>
+          <span className={classes.unit}>{temp_min.toFixed()}°</span>
         </p>
       </div>
     </div>
