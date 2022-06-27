@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { MutatingDots } from 'react-loader-spinner';
 import './App.css';
 import DefaultSearchLocation from './components/DefaultSearchLocation';
 import Forcast from './components/Forcast';
@@ -11,9 +12,12 @@ function App() {
   const [query, setQuery] = useState({ q: 'ahmedabad' });
   const [units, setUnits] = useState('metric');
   const [weather, setWeather] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchWeather = async () => {
+    setIsLoading(true);
     await getWeatherData({ ...query, units }).then((data) => setWeather(data));
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -21,7 +25,7 @@ function App() {
   }, [query, units]);
 
   const backgroud = () => {
-    if (!weather) return 'backgroundBlue';
+    if (!weather) return 'backgroundYellow';
 
     const threshold = units === 'metric' ? 25 : 77;
 
@@ -33,7 +37,18 @@ function App() {
       <DefaultSearchLocation setQuery={setQuery} />
       <Inputs setQuery={setQuery} setUnits={setUnits} />
 
-      {weather && (
+      {isLoading && (
+        <div className="flex justify-center">
+          <MutatingDots
+            height="100"
+            width="100"
+            color="orange"
+            ariaLabel="loading"
+          />
+        </div>
+      )}
+
+      {weather && !isLoading && (
         <>
           <TimeAndLocation weather={weather} />
           <TemperatureAndDetails weather={weather} />
