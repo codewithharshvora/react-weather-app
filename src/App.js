@@ -23,7 +23,7 @@ function App() {
   const backgroud = () => {
     if (!weather) return 'backgroundBlue';
 
-    const threshold = units === 'metric' ? 20 : 68;
+    const threshold = units === 'metric' ? 25 : 77;
 
     return weather.temp <= threshold ? 'backgroundBlue' : 'backgroundYellow';
   };
